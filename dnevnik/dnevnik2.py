@@ -46,6 +46,10 @@ def save_data():
 def info():
     print(
         """
+
+        Чтобы завершить работу программы нажмите комбинацию ctrl+C / control+C
+        Либо напишите -exit
+
         Перед началом работы залогиньтесь с помощью команды auth(login, password)
         Список команд:
         
@@ -72,6 +76,8 @@ def reg(login=None, password=None):
     if data["auth"][0] == False:
         if not login:
             login = input("Придумай логин: ")
+        if login == "-exit":
+            sys.exit()
         if not login in data["users"][0]:
             if not password:
                 password = input("Придумай пароль: ")
@@ -120,6 +126,8 @@ def create_note(title=None, text=None):
     user = data["users"][0][data["auth"][1]]
     if not title:
         title = input("Введи название записи: ")
+    if title == "-exit":
+        sys.exit()
     while title in user[4] or not title:
         if not title:
             title = input(print("Недопустимое название. Придумайте название записи: "))
@@ -135,6 +143,7 @@ def create_note(title=None, text=None):
     save_data()
 
 def show_notes():
+    print("Для выхода напишите команду -exit")
     if not data["auth"][1]:
         print("Пользователь не авторизован. Вызовите info() для справки.")
         sys.exit()
@@ -149,6 +158,8 @@ def show_notes():
         id = input("Чтобы посмотреть запись, напиши ее номер: ")
         while not id:
             id = input("Нужно ввести номер записи: ")
+        if id == "-exit":
+            sys.exit()
         title_exists = False
         for title in titles:
             if titles[title][0] == int(id):
@@ -173,6 +184,8 @@ def delete_note(id=None):
         print(titles[title][0], title)
     if not id:
         id = input("Чтобы удалить запись, напиши ее номер: ")
+    if id == "-exit":
+        sys.exit()
     title_exists = False
     for title in titles:
         if titles[title][0] == int(id):
