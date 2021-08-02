@@ -1,6 +1,7 @@
 ### Установка:
 
-Запустить python3 .../dnevnik_test/setup.py install
+**python3 ./setup.py install** 
+
 Не забудьте создать виртуальное окружение
 
 
