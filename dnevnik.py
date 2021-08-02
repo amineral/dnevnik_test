@@ -67,8 +67,8 @@ def create_note(user):
     text = input("Введи текст записи: ")
     while not text:
         text = input("Запись не может быть пустой. Введите текст: ")
-    user[4][title] = [0, text, datetime.datetime.now]
-    user[4][title][0] = len(user[4][title]) + 1
+    user[4][title] = [0, text, str(datetime.datetime.now())]
+    user[4][title][0] = len(user[4])
     print("Запись создана")
     save_data()
     # print(user[4]) # отобразить данные по созданому пользователю
