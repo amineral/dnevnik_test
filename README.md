@@ -7,7 +7,7 @@
 
 ### Команда для импорта:
 
-* **from dnevnik.dnevnik2 import info, auth, reg, logout, create_note, show_note, delete_note**
+* **from dnevnik.dnevnik2 import info, auth, reg, logout, create_notes, show_note, delete_note**
 
     * Для подробной информации о командах вызвать команду **info()**
 
